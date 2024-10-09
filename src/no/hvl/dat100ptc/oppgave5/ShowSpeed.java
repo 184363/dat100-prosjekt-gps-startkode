@@ -1,7 +1,6 @@
 package no.hvl.dat100ptc.oppgave5;
 
 import javax.swing.JOptionPane;
-
 import easygraphics.EasyGraphics;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSData;
@@ -40,9 +39,20 @@ public class ShowSpeed extends EasyGraphics {
 	public void showSpeedProfile(int ybase) {
 		
 		int x = MARGIN,y;
-	
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		double[] speeds = gpscomputer.speeds();
+		double averageSpeed = gpscomputer.averageSpeed();
+		
+		double averageSpeedKmH = averageSpeed * 3.6;
+		
+		for (int i = 0; i < speeds.length; i ++) {
+			double speedKmH = speeds[i] * 3.6;
+		
+		int speedY = ybase - (int) speedKmH;
+		drawLine(x, ybase, x, speedY);
+		x++;
+		}
+		int avgSpeedY = ybase - (int) averageSpeedKmH;
+		drawLine(MARGIN, avgSpeedY, x, avgSpeedY);
 		
 	}
 }

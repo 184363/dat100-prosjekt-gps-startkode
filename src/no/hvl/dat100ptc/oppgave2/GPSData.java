@@ -1,6 +1,8 @@
 package no.hvl.dat100ptc.oppgave2;
 
 import no.hvl.dat100ptc.TODO;
+import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
 public class GPSData {
@@ -29,8 +31,8 @@ public class GPSData {
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
-
-		int tim = Integer.parseInt(time);
+		
+	    int tim = GPSDataConverter.toSeconds(time);
 		double lat = Double.parseDouble(latitude);
 		double lon = Double.parseDouble(longitude);
 		double ele = Double.parseDouble(elevation);

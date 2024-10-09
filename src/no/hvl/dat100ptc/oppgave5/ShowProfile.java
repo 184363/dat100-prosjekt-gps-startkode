@@ -1,7 +1,6 @@
 package no.hvl.dat100ptc.oppgave5;
 
 import no.hvl.dat100ptc.TODO;
-
 import easygraphics.EasyGraphics;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSData;
@@ -45,12 +44,16 @@ public class ShowProfile extends EasyGraphics {
 	public void showHeightProfile(int ybase) {
 		
 		int x = MARGIN; // første høyde skal tegnes ved MARGIN
-		int y;
 		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
-
+		for(GPSPoint point: gpspoints) {
+			int height = (int)Math.max(point.getElevation(), 0);
+			
+			int y = ybase - height;
+			
+			drawLine(x, ybase, x, y);
+			
+			x++;
+		}
 	}
 
 }

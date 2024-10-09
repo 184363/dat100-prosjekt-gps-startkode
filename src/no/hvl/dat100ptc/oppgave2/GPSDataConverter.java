@@ -20,7 +20,9 @@ public class GPSDataConverter {
 		
         hr = Integer.parseInt(timeComponents[0]);
         min = Integer.parseInt(timeComponents[1]);
-        sec = Double.parseDouble(timeComponents[2]);
+        
+        String secPart = timeComponents[2].replace("Z", "");
+        sec = Double.parseDouble(secPart);
          
         secs = hr * 3600 + min * 60 + (int) sec;
         return secs;
